@@ -7,8 +7,9 @@ services:
     restart: always
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: mnkjoipl
       POSTGRES_DB: anonymous_chat
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - '5432:5432'
     volumes:
@@ -45,7 +46,7 @@ services:
     environment:
       NODE_ENV: production
       PORT: 3000
-      DATABASE_URL: postgresql://postgres:password@postgres:5432/anonymous_chat
+      DATABASE_URL: postgresql://postgres:mnkjoipl@postgres:5432/anonymous_chat?sslmode=disable
       REDIS_HOST: redis
       REDIS_PORT: 6379
     depends_on:
